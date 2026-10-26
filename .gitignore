@@ -1,7 +1,6 @@
 # Temporary and Office files
 ~$*
 *.docx
-*.html
 *.log
 __pycache__/
 *.pyc

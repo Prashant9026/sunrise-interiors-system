@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunrise Interiors — Agile Automate Technical Assignment | Prashant Mishra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0f1d;
+            --bg-secondary: #111827;
+            --bg-card: #1f2937;
+            --text-primary: #f9fafb;
+            --text-muted: #9ca3af;
+            --accent-blue: #3b82f6;
+            --accent-teal: #14b8a6;
+            --accent-purple: #8b5cf6;
+            --accent-orange: #f97316;
+            --accent-green: #10b981;
+            --border-color: #374151;
+            --card-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2.5rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+
+        /* Top Bar */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .top-nav .logo {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .top-nav .logo span {
+            color: var(--accent-blue);
+        }
+
+        .top-nav .links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .top-nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .top-nav a:hover {
+            color: #60a5fa;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(to right, #ffffff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .meta-item strong {
+            color: var(--text-primary);
+        }
+
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .task-tag {
+            background: var(--accent-blue);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem 0;
+            color: #93c5fd;
+        }
+
+        p {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.25rem 0;
+            font-size: 0.92rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: rgba(31, 41, 55, 0.9);
+            color: #f3f4f6;
+            text-align: left;
+            padding: 0.85rem 1rem;
+            font-weight: 600;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        td {
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: #e2e8f0;
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        pre, code {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        pre {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 1.25rem;
+            overflow-x: auto;
+            color: #e6edf3;
+            font-size: 0.88rem;
+            margin: 1rem 0;
+        }
+
+        code.inline {
+            background: rgba(255, 255, 255, 0.1);
+            color: #93c5fd;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.85em;
+        }
+
+        .highlight-box {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 10px;
+            padding: 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .highlight-box h4 {
+            color: #34d399;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .alert-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 10px;
+            padding: 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .alert-box h4 {
+            color: #f87171;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .widget-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .widget-title {
+            font-weight: 700;
+            color: #60a5fa;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-blue);
+            color: white;
+            font-weight: 600;
+            padding: 0.65rem 1.25rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-color);
+            color: #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Top Navigation -->
+        <nav class="top-nav">
+            <div class="logo">
+                <span>⚡</span> Sunrise Interiors System
+            </div>
+            <div class="links">
+                <a href="#task1">Task 1: ClickUp</a>
+                <a href="#task2">Task 2: Python Cleaner</a>
+                <a href="#task3">Task 3: n8n Workflow</a>
+                <a href="https://github.com/Prashant9026/sunrise-interiors-system" target="_blank" style="color: #60a5fa;">GitHub Repo ↗</a>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header>
+            <div class="badge">Agile Automate &bull; Technical Implementation Specialist (Intern)</div>
+            <h1>Sunrise Interiors System Implementation</h1>
+            <p>Production-ready system solving daily firefighting: missed deadlines, duplicate vendor payments, and lack of project visibility.</p>
+            <div class="meta-info">
+                <div class="meta-item">Candidate: <strong>Prashant Mishra</strong></div>
+                <div class="meta-item">Recruiter: <strong>amit12@agileautomate.co</strong></div>
+                <div class="meta-item">CC: <strong>aryansh@agileautomate.co</strong></div>
+                <div class="meta-item">Status: <strong>Ready for Submission</strong></div>
+            </div>
+            <div class="btn-group">
+                <a href="https://github.com/Prashant9026/sunrise-interiors-system" target="_blank" class="btn">View on GitHub ↗</a>
+                <a href="#task2" class="btn btn-secondary">View Cleaned Leads Data</a>
+            </div>
+        </header>
+
+        <!-- TASK 1 -->
+        <section id="task1" class="card">
+            <div class="card-header">
+                <span class="task-tag">TASK 1</span>
+                <h2>ClickUp Architecture & System Build</h2>
+            </div>
+            
+            <p>Sunrise Interiors currently runs through WhatsApp and Excel, suffering from missed deadlines, double vendor payouts, and zero executive visibility. Below is the full production system built to fix this.</p>
+
+            <h3>1. Hierarchy & Space Setup</h3>
+            <pre>Sunrise Interiors (Workspace)
+└── 📁 Interior Projects & Operations (Space)
+    ├── 📂 1. Client Projects (Residential & Commercial Lists)
+    ├── 📂 2. Vendor Procurement & Ledger (Material POs & Labor Contracts)
+    └── 📂 3. Design Studio Tasks (3D Concepts, BOQ, Snagging)</pre>
+
+            <h3>2. Custom Fields Designed for Sunrise Interiors</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Custom Field</th>
+                        <th>Type</th>
+                        <th>Purpose & Solution to Business Pain</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Carpet Area (Sq Ft)</strong></td>
+                        <td>Number</td>
+                        <td>Timeline & material sizing estimation.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Project Budget</strong></td>
+                        <td>Currency (₹)</td>
+                        <td>Total contract value agreed with client.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lead Designer</strong></td>
+                        <td>People</td>
+                        <td>Delegated to 1 of 3 interior designers.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vendor Name & Trade</strong></td>
+                        <td>Dropdown</td>
+                        <td>Carpentry, Electrical, False Ceiling, Marble, Civil.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total Invoiced Amount</strong></td>
+                        <td>Currency (₹)</td>
+                        <td>Total bill submitted by contractor.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Amount Paid</strong></td>
+                        <td>Currency (₹)</td>
+                        <td>Total money disbursed to date.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Balance Due</strong></td>
+                        <td>Formula</td>
+                        <td><code class="inline">Invoiced - Paid</code> (Stops double payouts!).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Payment Status</strong></td>
+                        <td>Dropdown</td>
+                        <td><code class="inline">Unpaid</code> | <code class="inline">Partially Paid</code> | <code class="inline">Fully Paid</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>3. ClickUp Automations</h3>
+            <div class="highlight-box">
+                <h4>⚡ Automation 1: Double-Payment Prevention (Crucial)</h4>
+                <p><strong>Trigger:</strong> When Custom Field <code class="inline">Payment Status</code> changes to <code class="inline">Fully Paid</code>.<br>
+                <strong>Action:</strong> Set <code class="inline">Balance Due</code> to ₹0, mark task as <code class="inline">Payment Cleared / Closed</code>, and post an audit comment: <em>"Vendor invoice paid in full. Do not disburse further advances."</em></p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>⚡ Automation 2: Seamless Design-to-Procurement Handoff</h4>
+                <p><strong>Trigger:</strong> When Project Status changes to <code class="inline">Client Approval & Sign-off</code>.<br>
+                <strong>Action:</strong> Automatically generate procurement subtasks ("Issue Plywood & Hardware POs") with a due date of Trigger + 5 days and assign to Procurement Lead.</p>
+            </div>
+
+            <h3>4. Owner's 10-Second Health Dashboard</h3>
+            <p>Allows the studio owner to assess project health and financial exposure in under 10 seconds without messaging anyone on WhatsApp:</p>
+            <div class="grid-2">
+                <div class="widget-card">
+                    <div class="widget-title">📊 1. Projects by Stage (Status Chart)</div>
+                    <p>Instant view of pipeline: 2 in Concept, 3 in Site Execution, 1 in Snagging.</p>
+                </div>
+                <div class="widget-card">
+                    <div class="widget-title">💰 2. Total Pending Vendor Dues (Calculation)</div>
+                    <p>Sum of all active <code class="inline">Balance Due</code> amounts across vendors. Zero cash-flow surprises.</p>
+                </div>
+                <div class="widget-card">
+                    <div class="widget-title">🚨 3. Overdue Tasks (Milestone Alert)</div>
+                    <p>Filters tasks past due date not marked completed. Spots site delays in 2 seconds.</p>
+                </div>
+                <div class="widget-card">
+                    <div class="widget-title">👥 4. Designer Workload (Workload View)</div>
+                    <p>Capacity breakdown across Designer 1, 2, and 3. Prevents burnout and idle time.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TASK 2 -->
+        <section id="task2" class="card">
+            <div class="card-header">
+                <span class="task-tag" style="background: var(--accent-teal);">TASK 2</span>
+                <h2>Data Cleaning (Python Script & Output)</h2>
+            </div>
+            
+            <p>Messy leads standardized to the Indian standard <code class="inline">+91XXXXXXXXXX</code> and exact duplicate records removed.</p>
+
+            <h3>Cleaned & Deduplicated Results Table</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Raw Messy Phone</th>
+                        <th>Cleaned Phone</th>
+                        <th>Action Performed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><strong>Ravi Kumar</strong></td>
+                        <td><code class="inline">9876543210</code></td>
+                        <td><strong>+919876543210</strong></td>
+                        <td>Added +91 prefix</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><strong>Priya Shah</strong></td>
+                        <td><code class="inline">91 98765 12345</code></td>
+                        <td><strong>+919876512345</strong></td>
+                        <td>Stripped spaces, standardized to +91</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><strong>Amit Verma</strong></td>
+                        <td><code class="inline">098-765-99887</code></td>
+                        <td><strong>+919876599887</strong></td>
+                        <td>Stripped leading zero & hyphens</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><strong>Sneha Reddy</strong></td>
+                        <td><code class="inline">+919876500000</code> / <code class="inline">9876500000</code></td>
+                        <td><strong>+919876500000</strong></td>
+                        <td>Unified format & <strong>deduplicated 1 row</strong></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><strong>Karan Mehta</strong></td>
+                        <td><code class="inline">+91-9876511111</code></td>
+                        <td><strong>+919876511111</strong></td>
+                        <td>Removed hyphens, validated +91</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Python Cleaning Script (<code class="inline">clean_leads.py</code>)</h3>
+            <pre><code>import csv
+import re
+from pathlib import Path
+
+def standardize_phone(phone_raw: str) -> str:
+    """Standardizes Indian phone numbers to '+91XXXXXXXXXX'."""
+    if not phone_raw:
+        return ""
+    digits = re.sub(r"\D", "", phone_raw)
+    if len(digits) == 12 and digits.startswith("91"):
+        digits = digits[2:]
+    elif len(digits) == 11 and digits.startswith("0"):
+        digits = digits[1:]
+    return f"+91{digits}" if len(digits) == 10 else f"+91{digits[-10:]}"
+
+def clean_leads_csv(input_path: str, output_path: str):
+    cleaned, seen = [], set()
+    with open(input_path, mode="r", encoding="utf-8") as infile:
+        reader = csv.DictReader(infile)
+        for row in reader:
+            name = row.get("Name", "").strip()
+            phone = standardize_phone(row.get("Phone", "").strip())
+            if (name, phone) not in seen:
+                seen.add((name, phone))
+                cleaned.append({"Name": name, "Phone": phone})
+
+    with open(output_path, mode="w", newline="", encoding="utf-8") as outfile:
+        writer = csv.DictWriter(outfile, fieldnames=["Name", "Phone"])
+        writer.writeheader()
+        writer.writerows(cleaned)
+    return cleaned
+
+if __name__ == "__main__":
+    clean_leads_csv("messy_leads.csv", "cleaned_leads.csv")</code></pre>
+        </section>
+
+        <!-- TASK 3 -->
+        <section id="task3" class="card">
+            <div class="card-header">
+                <span class="task-tag" style="background: var(--accent-purple);">TASK 3</span>
+                <h2>Automation Logic (n8n Workflow)</h2>
+            </div>
+            
+            <p>End-to-end event-driven architecture connecting Google Forms, ClickUp, Client Confirmation, and VIP Routing.</p>
+
+            <h3>Workflow Diagram</h3>
+            <pre>[ Google Form Submission Trigger ]
+               │
+               ▼
+   [ Node 1: Normalize & Sanitize ] (Code Node: cleans phone & extracts budget number)
+               │
+               ▼
+   [ Node 2: ClickUp Create Task ] (Creates Lead card in "Client Projects" list)
+               │
+               ▼
+   [ Node 3: Send Client Confirmation ] (WhatsApp/Email auto-acknowledgment)
+               │
+               ▼
+   [ Node 4: IF Condition ] ---------> (Is budgetNumber >= 500000?)
+         │               │
+     TRUE ▼           FALSE ▼
+[ Node 5: Slack/WhatsApp Alert ]   [ Node 6: Normal Queue ]
+(High-Value VIP Lead to Design)     (Logged for standard follow-up)</pre>
+
+            <h3>1. Trigger</h3>
+            <p><strong>Google Forms Trigger Node</strong> (or Webhook): Executes immediately when a prospective client submits an inquiry form.</p>
+
+            <h3>2. Sequence of Actions</h3>
+            <ol style="margin-left: 1.5rem; color: #cbd5e1; margin-bottom: 1.5rem;">
+                <li style="margin-bottom: 0.5rem;"><strong>Data Sanitization (Code Node):</strong> Cleans phone to <code class="inline">+91XXXXXXXXXX</code> and casts budget strings (e.g., "7,00,000" or "7.5 Lakhs") into pure integers.</li>
+                <li style="margin-bottom: 0.5rem;"><strong>ClickUp Lead Creation:</strong> Generates a task in the <em>Client Leads</em> list with mapped custom fields.</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Client Confirmation (Gmail/WhatsApp Cloud API):</strong> Sends immediate branded confirmation acknowledging project inquiry.</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Conditional Gate (IF Node):</strong> Checks if budget is greater than or equal to ₹5,00,000.</li>
+                <li style="margin-bottom: 0.5rem;"><strong>High-Priority Alert (Slack / WhatsApp Group):</strong> Fires an urgent ping to the 3-person design team channel with lead details and ClickUp link.</li>
+            </ol>
+
+            <h3>3. Where the ₹5 Lakh Conditional Logic Fits</h3>
+            <p>The conditional logic sits <strong>after</strong> the lead is secured in ClickUp and after the client receives confirmation, but <strong>before</strong> internal notification alerts. This guarantees:</p>
+            <ul style="margin-left: 1.5rem; color: #cbd5e1; margin-bottom: 1rem;">
+                <li>No lead is lost, regardless of budget size.</li>
+                <li>Every client receives immediate professional acknowledgement.</li>
+                <li>The design team is spared from alert fatigue, only being interrupted for high-value VIP projects.</li>
+            </ul>
+
+            <div class="alert-box">
+                <h4>⚠️ What Could Go Wrong & How to Prevent It (Error Handling)</h4>
+                <p><strong>Failure Mode:</strong> Unstructured budget input (e.g., client types <em>"To be discussed"</em> or <em>"Around 6L"</em>) causing NaN errors in numeric comparison, or transient API rate limits on ClickUp/WhatsApp.</p>
+                <p><strong>Solution:</strong><br>
+                1. <strong>Defensive Parsing:</strong> If the budget string fails numeric conversion, default to a <code class="inline">flag_requires_review = true</code> status, which routes the lead directly to the priority alert branch so no high-value client is accidentally dropped.<br>
+                2. <strong>n8n Error Trigger Node:</strong> Configure an automated error-catcher workflow that logs failed runs to a backup Google Sheet and pings the administrator immediately on Telegram/Slack with retry options enabled.</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
